@@ -1,0 +1,846 @@
+{
+  "config": {
+    "statuses": [
+      {
+        "id": "s1",
+        "label": "Idea",
+        "color": "#8B7355"
+      },
+      {
+        "id": "s2",
+        "label": "Filming",
+        "color": "#C4956A"
+      },
+      {
+        "id": "s3",
+        "label": "Editing",
+        "color": "#D4A574"
+      },
+      {
+        "id": "s4",
+        "label": "Ready to Post",
+        "color": "#7CAE7A"
+      },
+      {
+        "id": "s5",
+        "label": "Posted",
+        "color": "#5A8F5A"
+      }
+    ],
+    "sectionLabels": {
+      "brainDump": "Brain Dump",
+      "production": "Production",
+      "postingPrep": "Posting Prep",
+      "postedTo": "Posted To",
+      "content": "Content"
+    },
+    "defaultProductionItems": [
+      {
+        "id": "dpi_1",
+        "label": "Attention Grabber / Hook"
+      },
+      {
+        "id": "dpi_2",
+        "label": "Intro"
+      },
+      {
+        "id": "dpi_3",
+        "label": "Middle / Core Content"
+      },
+      {
+        "id": "dpi_4",
+        "label": "Ending / CTA"
+      },
+      {
+        "id": "d_1773106760888_184m",
+        "label": "Do you feel good about what you just made?"
+      }
+    ],
+    "defaultPostingPrepItems": [
+      {
+        "id": "dpp_1",
+        "label": "Thumbnail"
+      },
+      {
+        "id": "dpp_2",
+        "label": "Title"
+      },
+      {
+        "id": "dpp_3",
+        "label": "Description"
+      },
+      {
+        "id": "dpp_4",
+        "label": "Tags / Keywords"
+      }
+    ],
+    "defaultPlatforms": [
+      {
+        "id": "dpl_2",
+        "label": "Facebook"
+      },
+      {
+        "id": "dpl_1",
+        "label": "YouTube"
+      },
+      {
+        "id": "dpl_3",
+        "label": "Instagram"
+      },
+      {
+        "id": "dpl_4",
+        "label": "TikTok"
+      },
+      {
+        "id": "d_1773160016771_b1h1",
+        "label": "FACEBOOK GROUPS"
+      },
+      {
+        "id": "d_1773160034448_5ibi",
+        "label": "Facebook messenger status"
+      },
+      {
+        "id": "d_1773160084096_jour",
+        "label": "Whatapp status 1 for posting 1 for link 1 for video promo"
+      },
+      {
+        "id": "d_1773160110030_cr8g",
+        "label": "Instagram status update bar"
+      },
+      {
+        "id": "d_1773160153006_e64u",
+        "label": "1 hard post for story 1 hard post video 1 sending them see vanessa"
+      },
+      {
+        "id": "d_1773160170976_8xji",
+        "label": "YouTube post"
+      },
+      {
+        "id": "d_1773160178388_3y7a",
+        "label": "YouTube reels"
+      }
+    ],
+    "defaultDraftFields": [
+      {
+        "id": "ddf_1",
+        "label": "Tite:"
+      },
+      {
+        "id": "ddf_2",
+        "label": "SEO Description"
+      }
+    ],
+    "series": [
+      {
+        "id": "sr_1773105132613_mhmg",
+        "name": "adhd series",
+        "color": "#7B9EC4"
+      },
+      {
+        "id": "sr_1773105291464_1y5s",
+        "name": "Podcast Pilot",
+        "color": "#B07CC6"
+      }
+    ]
+  },
+  "videos": [
+    {
+      "id": "v_1772930748548_k08y",
+      "title": "Jar video pilot episode 1",
+      "statusId": "s2",
+      "createdAt": "2026-03-08T00:45:48.548Z",
+      "notes": [
+        {
+          "id": "n_1773103835533_b1z0",
+          "text": "Open question is, since this is going to be a podcast with me talking by myself, my question is, how would I title this so that people know what it is? Do I say podcast in the title, episode one, so that people know this is like an ongoing series? Okay.",
+          "timestamp": "2026-03-10T00:50:35.533Z"
+        },
+        {
+          "id": "n_1773169391106_td74",
+          "text": "The Jar is a weekly series where I sit down, pull random questions from a jar, and answer them honestly — no script, no filter, no right answers. Just me thinking out loud about life, identity, purpose, relationships, career, growth, and everything in between.\nIf you’re a young man trying to figure out who you are, what you want, and how to get there — this is the space. No guru energy. No motivational fluff. Just real reflection from someone still in the middle of figuring it out too.\nNew episodes drop weekly. Start anywhere — each one stands on its own.\nTags/keywords to include on the playlist:\npersonal growth, self-reflection, men’s mental health, life advice for young men, quarter life crisis, identity, purpose, real talk, journal prompts, deep questions, lifestyle, vulnerability, honest conversation, self-discovery, young men podcast",
+          "timestamp": "2026-03-10T19:03:11.106Z"
+        },
+        {
+          "id": "n_1773169488693_b2xd",
+          "text": "The Jar | [##] — [Episode Subtitle / Best Question]\nI pulled [3-5] questions from the jar this week. Here’s what came up:\n🫙 [Question 1]\n🫙 [Question 2]\n🫙 [Question 3]\nNo script. No rehearsal. Just me sitting with whatever the jar throws at me and answering honestly.\nIf this one hit, drop a comment with a question you’d throw in the jar — I might answer it in a future episode.",
+          "timestamp": "2026-03-10T19:04:48.693Z"
+        }
+      ],
+      "productionItems": [
+        {
+          "id": "pi_1772930748550_86a2",
+          "label": "Attention Grabber / Hook",
+          "checked": true
+        },
+        {
+          "id": "pi_1772930748550_d6iw",
+          "label": "Intro",
+          "checked": true
+        },
+        {
+          "id": "pi_1772930748550_nsqh",
+          "label": "Middle / Core Content",
+          "checked": true
+        },
+        {
+          "id": "pi_1772930748550_euhm",
+          "label": "Ending / CTA",
+          "checked": true
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1772930748550_yvi2",
+          "label": "Thumbnail",
+          "checked": true
+        },
+        {
+          "id": "pp_1772930748550_oaz3",
+          "label": "Title",
+          "checked": true
+        },
+        {
+          "id": "pp_1772930748550_5yem",
+          "label": "Description",
+          "checked": true
+        },
+        {
+          "id": "pp_1772930748550_p6s3",
+          "label": "Tags / Keywords",
+          "checked": true
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1772930748550_ef6j",
+          "label": "YouTube",
+          "posted": true
+        },
+        {
+          "id": "pl_1772930748550_vf76",
+          "label": "Facebook",
+          "posted": true
+        },
+        {
+          "id": "pl_1772930748550_0enq",
+          "label": "Instagram",
+          "posted": true
+        },
+        {
+          "id": "pl_1772930748550_za2i",
+          "label": "TikTok",
+          "posted": true
+        },
+        {
+          "id": "pl_1772930748550_9fs1",
+          "label": "X / Twitter",
+          "posted": true
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1773103799250_j1r1",
+          "label": "Title Options: the jar show",
+          "content": "The Jar | 01 A lesson that changed my life?"
+        },
+        {
+          "id": "df_1773103871118_2j5t",
+          "label": "seo decription",
+          "content": "done\n"
+        }
+      ],
+      "seriesId": "sr_1773105291464_1y5s"
+    },
+    {
+      "id": "v_1772931532485_zg2i",
+      "title": "ADHD diagnosed part 1",
+      "statusId": "s2",
+      "createdAt": "2026-03-08T00:58:52.485Z",
+      "notes": [
+        {
+          "id": "n_1773106914316_gn6l",
+          "text": "So the story goes like this: when I was a kid, I was diagnosed with ADHD. I took medication for a time, but then I kind of left it alone. I kind of went through life thinking that I didn't need it until I can't even remember right now, but I stumbled upon something where I'm like, \"Well, yeah, that's ADHD.\" I was at this place of healing my life and acknowledging a lot of things until I decided, \"Well, maybe it's time to look at that.\" I decided to really just focus on that. It's crazy because there's been so much healing from me acknowledging that I have it.",
+          "timestamp": "2026-03-10T01:41:54.316Z"
+        },
+        {
+          "id": "n_1773354411948_2qam",
+          "text": "I think the way I'ma do this is I am gonna sit down, I'm gonna read my diagnosis, I'ma pull it up, and I really want to say what it means for me and in my life. I want to end with giving some people some tools and things of that nature.\n\nI want to sit down and talk about it. That's specifically what it means for me and what it's meant for me in my life and why I decided to do this. I want to come to the video of me putting it in for the first time, and then I want to cut back to myself in the present day to encourage people. I got to make sure I have a good segway for that cut part. I want to encourage people to go and get diagnosed if they are, and hopefully it helps people.\n\nI also want to have another segway for the second video where it's me actually going to an ADHD conference.",
+          "timestamp": "2026-03-12T22:26:51.948Z"
+        }
+      ],
+      "productionItems": [
+        {
+          "id": "pi_1772931532485_zech",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1772931532485_p7da",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1772931532485_30cv",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1772931532485_r9j4",
+          "label": "Ending / CTA",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1772931532485_vpl4",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1772931532485_gl3z",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1772931532485_aoam",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1772931532485_tie7",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1772931532485_lm0f",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1772931532485_36fk",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1772931532485_ju8g",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1772931532485_ahts",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1772931532485_3znv",
+          "label": "X / Twitter",
+          "posted": false
+        }
+      ],
+      "draftFields": [],
+      "seriesId": "sr_1773105132613_mhmg"
+    },
+    {
+      "id": "v_1773104255316_9dar",
+      "title": "neuro diversion confernce standalone episode part 2",
+      "statusId": "s1",
+      "createdAt": "2026-03-10T00:57:35.316Z",
+      "notes": [
+        {
+          "id": "n_1773112321340_7h5b",
+          "text": "The idea here is I just do a day in the life vlog showing people some of the big moments and me going to the event and vlogging, and just kind of showing them what I did. I think those are my thoughts. I don't know how to go about it, you",
+          "timestamp": "2026-03-10T03:12:01.340Z"
+        },
+        {
+          "id": "n_1773112353551_riht",
+          "text": "We're going to have a beginning, middle, and end. For this video, the story will unfold.",
+          "timestamp": "2026-03-10T03:12:33.551Z"
+        }
+      ],
+      "productionItems": [
+        {
+          "id": "pi_1773104255318_nitl",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1773104255318_pphc",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1773104255318_pti6",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1773104255318_oze2",
+          "label": "Ending / CTA",
+          "checked": false
+        },
+        {
+          "id": "item_1773112428894_sq9u",
+          "label": "intro will be something crazy from the stage follow  by me driving to the event.",
+          "checked": false
+        },
+        {
+          "id": "item_1773112440334_5y3n",
+          "label": "I need to get some vlog music",
+          "checked": false
+        },
+        {
+          "id": "item_1773112458702_awnl",
+          "label": "this will a voicer vlog",
+          "checked": false
+        },
+        {
+          "id": "item_1773112472400_eyzv",
+          "label": "watch vanessa video about vloging",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1773104255318_587c",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1773104255318_vsni",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1773104255318_nen0",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1773104255318_xcsm",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1773104255318_722l",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1773104255318_4cti",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1773104255318_lsyc",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1773104255318_lsee",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1773104255318_sgjy",
+          "label": "X / Twitter",
+          "posted": false
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1773104255318_8448",
+          "label": "Tite:",
+          "content": ""
+        },
+        {
+          "id": "df_1773104255318_zuo4",
+          "label": "SEO Description",
+          "content": ""
+        }
+      ],
+      "seriesId": "sr_1773105132613_mhmg"
+    },
+    {
+      "id": "v_1773354927979_bm1z",
+      "title": "Untitled Video",
+      "statusId": "s1",
+      "createdAt": "2026-03-12T22:35:27.979Z",
+      "notes": [],
+      "productionItems": [
+        {
+          "id": "pi_1773354927979_5nyu",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354927979_agm5",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354927979_44s7",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354927979_ytdy",
+          "label": "Ending / CTA",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354927979_ab60",
+          "label": "Do you feel good about what you just made?",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1773354927980_e46i",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354927980_m3tr",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354927980_2cge",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354927980_ccsu",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1773354927980_jum1",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_kc90",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_cwoz",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_k982",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_a66k",
+          "label": "FACEBOOK GROUPS",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_ufg1",
+          "label": "Facebook messenger status",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_j4dd",
+          "label": "Whatapp status 1 for posting 1 for link 1 for video promo",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_3uf1",
+          "label": "Instagram status update bar",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_okux",
+          "label": "1 hard post for story 1 hard post video 1 sending them see vanessa",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_jtmi",
+          "label": "YouTube post",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354927980_tslr",
+          "label": "YouTube reels",
+          "posted": false
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1773354927980_qc1x",
+          "label": "Tite:",
+          "content": ""
+        },
+        {
+          "id": "df_1773354927980_qrkz",
+          "label": "SEO Description",
+          "content": ""
+        }
+      ],
+      "seriesId": null
+    },
+    {
+      "id": "v_1773354943563_qt7o",
+      "title": "The Jar | 02",
+      "statusId": "s1",
+      "createdAt": "2026-03-12T22:35:43.563Z",
+      "notes": [],
+      "productionItems": [
+        {
+          "id": "pi_1773354943563_3btj",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354943563_8tw7",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354943563_9pi6",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354943563_pmuv",
+          "label": "Ending / CTA",
+          "checked": false
+        },
+        {
+          "id": "pi_1773354943563_6e9d",
+          "label": "Do you feel good about what you just made?",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1773354943563_5nwo",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354943563_fvwu",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354943563_sy7z",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1773354943563_1b32",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1773354943563_cf0w",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_5876",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_wrjg",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_pqg2",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_yn5f",
+          "label": "FACEBOOK GROUPS",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_izmw",
+          "label": "Facebook messenger status",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_nci3",
+          "label": "Whatapp status 1 for posting 1 for link 1 for video promo",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_4ivz",
+          "label": "Instagram status update bar",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_4pqz",
+          "label": "1 hard post for story 1 hard post video 1 sending them see vanessa",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_ivk1",
+          "label": "YouTube post",
+          "posted": false
+        },
+        {
+          "id": "pl_1773354943563_kd8d",
+          "label": "YouTube reels",
+          "posted": false
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1773354943563_lj3n",
+          "label": "Tite:",
+          "content": "The Jar | 02"
+        },
+        {
+          "id": "df_1773354943563_o06j",
+          "label": "SEO Description",
+          "content": ""
+        }
+      ],
+      "seriesId": "sr_1773105291464_1y5s"
+    },
+    {
+      "id": "v_1773400400710_aafo",
+      "title": "Untitled Video",
+      "statusId": "s1",
+      "createdAt": "2026-03-13T11:13:20.710Z",
+      "notes": [],
+      "productionItems": [
+        {
+          "id": "pi_1773400400710_xfcn",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1773400400710_tzxk",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1773400400710_h8ks",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1773400400710_8u72",
+          "label": "Ending / CTA",
+          "checked": false
+        },
+        {
+          "id": "pi_1773400400710_oiqp",
+          "label": "Do you feel good about what you just made?",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1773400400710_t1he",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1773400400710_shcv",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1773400400710_oidp",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1773400400710_q2jz",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1773400400710_pzsl",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_q0ky",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_pd40",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_9jpe",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_llo0",
+          "label": "FACEBOOK GROUPS",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_qeoe",
+          "label": "Facebook messenger status",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_gdax",
+          "label": "Whatapp status 1 for posting 1 for link 1 for video promo",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_mzt4",
+          "label": "Instagram status update bar",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_2fg3",
+          "label": "1 hard post for story 1 hard post video 1 sending them see vanessa",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_olxs",
+          "label": "YouTube post",
+          "posted": false
+        },
+        {
+          "id": "pl_1773400400710_yexh",
+          "label": "YouTube reels",
+          "posted": false
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1773400400710_z45o",
+          "label": "Tite:",
+          "content": ""
+        },
+        {
+          "id": "df_1773400400710_l3mn",
+          "label": "SEO Description",
+          "content": ""
+        }
+      ],
+      "seriesId": null
+    }
+  ]
+}
