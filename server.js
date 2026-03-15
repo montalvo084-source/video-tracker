@@ -7,7 +7,8 @@ import { resolve, dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_FILE = resolve(__dirname, 'data.json')
+const DATA_DIR = process.env.DATA_DIR || __dirname
+const DATA_FILE = resolve(DATA_DIR, 'data.json')
 
 const app = express()
 app.use(express.json({ limit: '10mb' }))
