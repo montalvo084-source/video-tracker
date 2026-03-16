@@ -1451,7 +1451,7 @@ function VideoCard({ video, statuses, series, onSelect, dispatch }) {
 // LIST VIEW HEADER
 // ─────────────────────────────────────────────
 
-function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, dispatch, onAddVideo, onAddSeries, onEditTemplate }) {
+function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, dispatch, onAddVideo, onAddSeries, onEditTemplate, addingSeriesName, setAddingSeriesName, onConfirmSeries }) {
   const inProgress = videos.filter(v => { const p = calcProgress(v); return p > 0 && p < 1 }).length
   const complete   = videos.filter(v => calcProgress(v) >= 1).length
   const total      = videos.length
@@ -1474,15 +1474,43 @@ function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, d
 
       {/* Secondary actions */}
       <div className="flex items-center gap-4 mb-5">
-        <button
-          onClick={onAddSeries}
-          className="text-xs transition-colors"
-          style={{ color: "#8B7355" }}
-          onMouseEnter={e => e.target.style.color = "#C4956A"}
-          onMouseLeave={e => e.target.style.color = "#8B7355"}
-        >
-          + Series
-        </button>
+        {addingSeriesName !== null ? (
+          <div className="flex items-center gap-2">
+            <input
+              autoFocus
+              type="text"
+              value={addingSeriesName}
+              onChange={e => setAddingSeriesName(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === "Enter") onConfirmSeries()
+                if (e.key === "Escape") setAddingSeriesName(null)
+              }}
+              placeholder="Series name…"
+              className="text-xs outline-none border-b px-1 py-0.5"
+              style={{ background: "transparent", color: "#E8DDD0", borderColor: "#C4956A", minWidth: 130 }}
+            />
+            <button
+              onClick={onConfirmSeries}
+              className="text-xs px-2 py-0.5 rounded"
+              style={{ color: "#141210", background: "#C4956A" }}
+            >Add</button>
+            <button
+              onClick={() => setAddingSeriesName(null)}
+              className="text-xs"
+              style={{ color: "#8B7355" }}
+            >✕</button>
+          </div>
+        ) : (
+          <button
+            onClick={onAddSeries}
+            className="text-xs transition-colors"
+            style={{ color: "#8B7355" }}
+            onMouseEnter={e => e.target.style.color = "#C4956A"}
+            onMouseLeave={e => e.target.style.color = "#8B7355"}
+          >
+            + Series
+          </button>
+        )}
         <button
           onClick={onEditTemplate}
           className="text-xs transition-colors"
@@ -1957,6 +1985,7 @@ function SeriesGroupHeader({ series, videoCount, dispatch }) {
 
 function ListView({ state, dispatch, onSelectVideo, onEditTemplate, filterStatusId, setFilterStatusId }) {
   const { setEditingId } = React.useContext(AppContext)
+  const [addingSeriesName, setAddingSeriesName] = React.useState(null) // null = hidden, "" = open
 
   const handleAddVideo = () => {
     const video = createVideo(state.config)
@@ -1965,10 +1994,12 @@ function ListView({ state, dispatch, onSelectVideo, onEditTemplate, filterStatus
     onSelectVideo(video.id)
   }
 
-  const handleAddSeries = () => {
-    const id = uid("sr")
-    dispatch({ type: "ADD_SERIES", payload: { id, name: "New Series" } })
-    setEditingId(`series-name-${id}`)
+  const handleAddSeries = () => setAddingSeriesName("")
+
+  const handleConfirmSeries = () => {
+    const name = (addingSeriesName || "").trim() || "New Series"
+    dispatch({ type: "ADD_SERIES", payload: { id: uid("sr"), name } })
+    setAddingSeriesName(null)
   }
 
   const filtered = filterStatusId
@@ -1998,6 +2029,9 @@ function ListView({ state, dispatch, onSelectVideo, onEditTemplate, filterStatus
         onAddVideo={handleAddVideo}
         onAddSeries={handleAddSeries}
         onEditTemplate={onEditTemplate}
+        addingSeriesName={addingSeriesName}
+        setAddingSeriesName={setAddingSeriesName}
+        onConfirmSeries={handleConfirmSeries}
       />
 
       <div className="mb-4">
