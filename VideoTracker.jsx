@@ -52,6 +52,7 @@ const DEFAULT_STATE = {
       { id: "ddf_2", label: "Description" },
     ],
     series: [],
+    savedNotes: [],
   },
   videos: [],
 }
@@ -431,6 +432,29 @@ function reducer(state, action) {
       return {
         ...state,
         videos: state.videos.map(v => v.id === payload.videoId ? { ...v, seriesId: payload.seriesId } : v),
+      }
+    }
+
+    // ── Saved Notes ────────────────────────────
+    case "ADD_SAVED_NOTE": {
+      const sn = { id: uid("sn"), title: payload.title, body: payload.body, createdAt: Date.now() }
+      return { ...state, config: { ...state.config, savedNotes: [sn, ...(state.config.savedNotes || [])] } }
+    }
+    case "EDIT_SAVED_NOTE": {
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          savedNotes: (state.config.savedNotes || []).map(n =>
+            n.id === payload.id ? { ...n, title: payload.title, body: payload.body } : n
+          ),
+        },
+      }
+    }
+    case "DELETE_SAVED_NOTE": {
+      return {
+        ...state,
+        config: { ...state.config, savedNotes: (state.config.savedNotes || []).filter(n => n.id !== payload.id) },
       }
     }
 
@@ -1451,7 +1475,7 @@ function VideoCard({ video, statuses, series, onSelect, dispatch }) {
 // LIST VIEW HEADER
 // ─────────────────────────────────────────────
 
-function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, dispatch, onAddVideo, onAddSeries, onEditTemplate, addingSeriesName, setAddingSeriesName, onConfirmSeries }) {
+function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, dispatch, onAddVideo, onAddSeries, onEditTemplate, onSavedNotes, addingSeriesName, setAddingSeriesName, onConfirmSeries }) {
   const inProgress = videos.filter(v => { const p = calcProgress(v); return p > 0 && p < 1 }).length
   const complete   = videos.filter(v => calcProgress(v) >= 1).length
   const total      = videos.length
@@ -1511,6 +1535,15 @@ function ListViewHeader({ videos, statuses, filterStatusId, setFilterStatusId, d
             + Series
           </button>
         )}
+        <button
+          onClick={onSavedNotes}
+          className="text-xs transition-colors"
+          style={{ color: "#8B7355" }}
+          onMouseEnter={e => e.target.style.color = "#C4956A"}
+          onMouseLeave={e => e.target.style.color = "#8B7355"}
+        >
+          Saved Notes
+        </button>
         <button
           onClick={onEditTemplate}
           className="text-xs transition-colors"
@@ -1872,6 +1905,191 @@ function TemplateList({ listKey, items, dispatch, addLabel }) {
 // TEMPLATE VIEW
 // ─────────────────────────────────────────────
 
+// ─────────────────────────────────────────────
+// SAVED NOTES VIEW
+// ─────────────────────────────────────────────
+
+function SavedNotesView({ config, dispatch, onBack }) {
+  const [adding, setAdding]         = React.useState(false)
+  const [newTitle, setNewTitle]     = React.useState("")
+  const [newBody, setNewBody]       = React.useState("")
+  const [editingId, setEditingId]   = React.useState(null)
+  const [editTitle, setEditTitle]   = React.useState("")
+  const [editBody, setEditBody]     = React.useState("")
+
+  const notes = config.savedNotes || []
+
+  const handleAdd = () => {
+    const title = newTitle.trim()
+    const body  = newBody.trim()
+    if (!title && !body) return
+    dispatch({ type: "ADD_SAVED_NOTE", payload: { title: title || "Untitled", body } })
+    setNewTitle("")
+    setNewBody("")
+    setAdding(false)
+  }
+
+  const startEdit = (note) => {
+    setEditingId(note.id)
+    setEditTitle(note.title)
+    setEditBody(note.body)
+  }
+
+  const handleSaveEdit = (id) => {
+    dispatch({ type: "EDIT_SAVED_NOTE", payload: { id, title: editTitle.trim() || "Untitled", body: editBody.trim() } })
+    setEditingId(null)
+  }
+
+  const inputStyle = {
+    background: "#141210",
+    border: "1px solid #2A2520",
+    borderRadius: 8,
+    color: "#E8DDD0",
+    padding: "8px 10px",
+    fontSize: 13,
+    outline: "none",
+    width: "100%",
+  }
+
+  return (
+    <div style={{ maxWidth: 680, margin: "0 auto", padding: "24px 16px" }}>
+      <div className="flex items-center gap-3 mb-2">
+        <button
+          onClick={onBack}
+          className="text-sm transition-colors" style={{ color: "#8B7355" }}
+          onMouseEnter={e => e.target.style.color = "#E8DDD0"}
+          onMouseLeave={e => e.target.style.color = "#8B7355"}
+        >
+          ← Back
+        </button>
+        <h1 className="text-xl font-semibold" style={{ color: "#E8DDD0" }}>Saved Notes</h1>
+        <button
+          onClick={() => { setAdding(true); setNewTitle(""); setNewBody("") }}
+          className="text-xs ml-auto transition-colors"
+          style={{ color: "#C4956A" }}
+          onMouseEnter={e => e.target.style.color = "#E8DDD0"}
+          onMouseLeave={e => e.target.style.color = "#C4956A"}
+        >
+          + Add Note
+        </button>
+      </div>
+      <p className="text-sm mb-6" style={{ color: "#8B7355" }}>
+        Save prompts, templates, and anything you want to reference while working on videos.
+      </p>
+
+      {adding && (
+        <div className="rounded-xl border p-4 mb-4" style={{ background: "#1C1916", borderColor: "#C4956A" }}>
+          <input
+            autoFocus
+            placeholder="Title"
+            value={newTitle}
+            onChange={e => setNewTitle(e.target.value)}
+            style={{ ...inputStyle, marginBottom: 8, fontWeight: 600 }}
+            onKeyDown={e => { if (e.key === "Escape") setAdding(false) }}
+          />
+          <textarea
+            placeholder="Paste your prompt or note here…"
+            value={newBody}
+            onChange={e => setNewBody(e.target.value)}
+            rows={5}
+            style={{ ...inputStyle, resize: "vertical", fontFamily: "'JetBrains Mono', monospace", fontSize: 12, marginBottom: 10 }}
+          />
+          <div className="flex gap-2">
+            <button
+              onClick={handleAdd}
+              style={{ background: "#C4956A", color: "#141210", borderRadius: 6, padding: "5px 14px", fontSize: 12, fontWeight: 600 }}
+            >
+              Save
+            </button>
+            <button
+              onClick={() => setAdding(false)}
+              className="text-xs transition-colors"
+              style={{ color: "#8B7355", padding: "5px 10px" }}
+              onMouseEnter={e => e.target.style.color = "#E8DDD0"}
+              onMouseLeave={e => e.target.style.color = "#8B7355"}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+      <div className="space-y-3">
+        {notes.length === 0 && !adding && (
+          <p className="text-sm" style={{ color: "#8B7355" }}>No saved notes yet.</p>
+        )}
+        {notes.map(note => (
+          <div key={note.id} className="group rounded-xl border p-4" style={{ background: "#1C1916", borderColor: "#2A2520" }}>
+            {editingId === note.id ? (
+              <>
+                <input
+                  autoFocus
+                  value={editTitle}
+                  onChange={e => setEditTitle(e.target.value)}
+                  style={{ ...inputStyle, marginBottom: 8, fontWeight: 600 }}
+                  onKeyDown={e => { if (e.key === "Escape") setEditingId(null) }}
+                />
+                <textarea
+                  value={editBody}
+                  onChange={e => setEditBody(e.target.value)}
+                  rows={5}
+                  style={{ ...inputStyle, resize: "vertical", fontFamily: "'JetBrains Mono', monospace", fontSize: 12, marginBottom: 10 }}
+                />
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => handleSaveEdit(note.id)}
+                    style={{ background: "#C4956A", color: "#141210", borderRadius: 6, padding: "5px 14px", fontSize: 12, fontWeight: 600 }}
+                  >
+                    Save
+                  </button>
+                  <button
+                    onClick={() => setEditingId(null)}
+                    className="text-xs transition-colors"
+                    style={{ color: "#8B7355", padding: "5px 10px" }}
+                    onMouseEnter={e => e.target.style.color = "#E8DDD0"}
+                    onMouseLeave={e => e.target.style.color = "#8B7355"}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="flex items-start justify-between gap-2 mb-2">
+                  <p className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>{note.title}</p>
+                  <div className="flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0">
+                    <button
+                      onClick={() => startEdit(note)}
+                      className="text-xs transition-colors"
+                      style={{ color: "#8B7355" }}
+                      onMouseEnter={e => e.target.style.color = "#C4956A"}
+                      onMouseLeave={e => e.target.style.color = "#8B7355"}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => dispatch({ type: "DELETE_SAVED_NOTE", payload: { id: note.id } })}
+                      className="text-xs transition-colors"
+                      style={{ color: "#8B7355" }}
+                      onMouseEnter={e => e.target.style.color = "#fca5a5"}
+                      onMouseLeave={e => e.target.style.color = "#8B7355"}
+                    >
+                      × Delete
+                    </button>
+                  </div>
+                </div>
+                <p style={{ color: "#C8B89A", fontSize: 13, whiteSpace: "pre-wrap", fontFamily: "'JetBrains Mono', monospace", lineHeight: 1.6 }}>
+                  {note.body}
+                </p>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 function TemplateView({ config, dispatch, onBack }) {
   const sections = [
     { key: "defaultProductionItems",  label: config.sectionLabels.production,  addLabel: "item" },
@@ -1983,7 +2201,7 @@ function SeriesGroupHeader({ series, videoCount, dispatch }) {
 // LIST VIEW
 // ─────────────────────────────────────────────
 
-function ListView({ state, dispatch, onSelectVideo, onEditTemplate, filterStatusId, setFilterStatusId }) {
+function ListView({ state, dispatch, onSelectVideo, onEditTemplate, onSavedNotes, filterStatusId, setFilterStatusId }) {
   const { setEditingId } = React.useContext(AppContext)
   const [addingSeriesName, setAddingSeriesName] = React.useState(null) // null = hidden, "" = open
 
@@ -2029,6 +2247,7 @@ function ListView({ state, dispatch, onSelectVideo, onEditTemplate, filterStatus
         onAddVideo={handleAddVideo}
         onAddSeries={handleAddSeries}
         onEditTemplate={onEditTemplate}
+        onSavedNotes={onSavedNotes}
         addingSeriesName={addingSeriesName}
         setAddingSeriesName={setAddingSeriesName}
         onConfirmSeries={handleConfirmSeries}
@@ -2116,6 +2335,7 @@ export default function App() {
   const [loaded, setLoaded]         = React.useState(false)
   const [selectedVideoId, setSelectedVideoId] = React.useState(null)
   const [showTemplate, setShowTemplate]       = React.useState(false)
+  const [showSavedNotes, setShowSavedNotes]   = React.useState(false)
   const [filterStatusId, setFilterStatusId]   = React.useState(null)
   const [editingId, setEditingId]             = React.useState(null)
 
@@ -2131,6 +2351,7 @@ export default function App() {
           data.config.defaultDraftFields      = migrateDefaultList(data.config.defaultDraftFields || DEFAULT_STATE.config.defaultDraftFields)
           if (!data.config.sectionLabels.content) data.config.sectionLabels.content = "Content"
           if (!data.config.series) data.config.series = []
+          if (!data.config.savedNotes) data.config.savedNotes = []
           data.videos = data.videos.map(v => ('seriesId' in v ? v : { ...v, seriesId: null }))
           dispatch({ type: 'LOAD_STATE', payload: data })
         }
@@ -2190,12 +2411,19 @@ export default function App() {
             dispatch={dispatch}
             onBack={() => setShowTemplate(false)}
           />
+        ) : showSavedNotes ? (
+          <SavedNotesView
+            config={state.config}
+            dispatch={dispatch}
+            onBack={() => setShowSavedNotes(false)}
+          />
         ) : (
           <ListView
             state={state}
             dispatch={dispatch}
             onSelectVideo={setSelectedVideoId}
             onEditTemplate={() => setShowTemplate(true)}
+            onSavedNotes={() => setShowSavedNotes(true)}
             filterStatusId={filterStatusId}
             setFilterStatusId={setFilterStatusId}
           />
