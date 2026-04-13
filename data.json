@@ -141,7 +141,27 @@
         "name": "Podcast Pilot",
         "color": "#B07CC6"
       }
-    ]
+    ],
+    "savedNotes": [],
+    "snippets": [],
+    "workflowTemplates": [],
+    "xp": {
+      "total": 20,
+      "history": [
+        {
+          "action": "phase_checked",
+          "points": 10,
+          "timestamp": 1776042528750,
+          "episodeId": "v_1772931532485_zg2i"
+        },
+        {
+          "action": "phase_checked",
+          "points": 10,
+          "timestamp": 1776042523786,
+          "episodeId": "v_1772931532485_zg2i"
+        }
+      ]
+    }
   },
   "videos": [
     {
@@ -249,7 +269,8 @@
           "content": "done\n"
         }
       ],
-      "seriesId": "sr_1773105291464_1y5s"
+      "seriesId": "sr_1773105291464_1y5s",
+      "lastTouched": "2026-03-08T00:45:48.548Z"
     },
     {
       "id": "v_1772931532485_zg2i",
@@ -272,12 +293,12 @@
         {
           "id": "pi_1772931532485_zech",
           "label": "Attention Grabber / Hook",
-          "checked": false
+          "checked": true
         },
         {
           "id": "pi_1772931532485_p7da",
           "label": "Intro",
-          "checked": false
+          "checked": true
         },
         {
           "id": "pi_1772931532485_30cv",
@@ -340,7 +361,8 @@
         }
       ],
       "draftFields": [],
-      "seriesId": "sr_1773105132613_mhmg"
+      "seriesId": "sr_1773105132613_mhmg",
+      "lastTouched": "2026-04-13T01:08:48.750Z"
     },
     {
       "id": "v_1773104255316_9dar",
@@ -462,7 +484,8 @@
           "content": ""
         }
       ],
-      "seriesId": "sr_1773105132613_mhmg"
+      "seriesId": "sr_1773105132613_mhmg",
+      "lastTouched": "2026-03-10T00:57:35.316Z"
     },
     {
       "id": "v_1773354927979_bm1z",
@@ -588,7 +611,8 @@
           "content": ""
         }
       ],
-      "seriesId": null
+      "seriesId": null,
+      "lastTouched": "2026-03-12T22:35:27.979Z"
     },
     {
       "id": "v_1773354943563_qt7o",
@@ -714,7 +738,8 @@
           "content": ""
         }
       ],
-      "seriesId": "sr_1773105291464_1y5s"
+      "seriesId": "sr_1773105291464_1y5s",
+      "lastTouched": "2026-03-12T22:35:43.563Z"
     },
     {
       "id": "v_1773400400710_aafo",
@@ -840,7 +865,140 @@
           "content": ""
         }
       ],
-      "seriesId": null
+      "seriesId": null,
+      "lastTouched": "2026-03-13T11:13:20.710Z"
+    },
+    {
+      "id": "v_1776042554565_nrwf",
+      "title": "the jar episode 7",
+      "statusId": "s1",
+      "createdAt": "2026-04-13T01:09:14.565Z",
+      "lastTouched": "2026-04-13T01:09:43.032Z",
+      "notes": [],
+      "productionItems": [
+        {
+          "id": "pi_1776042554565_m9ci",
+          "label": "Attention Grabber / Hook",
+          "checked": false
+        },
+        {
+          "id": "pi_1776042554565_y6lk",
+          "label": "Intro",
+          "checked": false
+        },
+        {
+          "id": "pi_1776042554565_8d6q",
+          "label": "Middle / Core Content",
+          "checked": false
+        },
+        {
+          "id": "pi_1776042554565_fjr4",
+          "label": "Ending / CTA",
+          "checked": false
+        },
+        {
+          "id": "pi_1776042554565_3vbs",
+          "label": "Do you feel good about what you just made?",
+          "checked": false
+        }
+      ],
+      "postingPrepItems": [
+        {
+          "id": "pp_1776042554565_weya",
+          "label": "Thumbnail",
+          "checked": false
+        },
+        {
+          "id": "pp_1776042554565_1qux",
+          "label": "Title",
+          "checked": false
+        },
+        {
+          "id": "pp_1776042554565_du3v",
+          "label": "Description",
+          "checked": false
+        },
+        {
+          "id": "pp_1776042554565_naj6",
+          "label": "Tags / Keywords",
+          "checked": false
+        }
+      ],
+      "platforms": [
+        {
+          "id": "pl_1776042554565_i8ms",
+          "label": "Facebook",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_udog",
+          "label": "YouTube",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_qqd9",
+          "label": "Instagram",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_adww",
+          "label": "TikTok",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_ihf9",
+          "label": "FACEBOOK GROUPS",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_ftnl",
+          "label": "Facebook messenger status",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_98ml",
+          "label": "Whatapp status 1 for posting 1 for link 1 for video promo",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_0yeg",
+          "label": "Instagram status update bar",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_v4ri",
+          "label": "1 hard post for story 1 hard post video 1 sending them see vanessa",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_e4ze",
+          "label": "YouTube post",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042554565_tdbz",
+          "label": "YouTube reels",
+          "posted": false
+        },
+        {
+          "id": "pl_1776042583032_1kby",
+          "label": "gh",
+          "posted": false
+        }
+      ],
+      "draftFields": [
+        {
+          "id": "df_1776042554565_6vm8",
+          "label": "Tite:",
+          "content": ""
+        },
+        {
+          "id": "df_1776042554565_2pxi",
+          "label": "SEO Description",
+          "content": ""
+        }
+      ],
+      "seriesId": "sr_1773105291464_1y5s"
     }
   ]
 }
