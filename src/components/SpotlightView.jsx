@@ -170,41 +170,52 @@ export default function SpotlightView({ spotlightId, onSetSpotlight, onOpenDetai
           <div style={{ marginTop: 20 }} onClick={e => e.stopPropagation()}>
             {nextAction ? (
               <>
-                <span className="mono" style={{ color: 'var(--text-muted)', fontSize: 10, display: 'block', marginBottom: 8 }}>
-                  NEXT UP · {nextAction.section.toUpperCase()}
-                </span>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                  <span className="mono" style={{ color: 'var(--text-muted)', fontSize: 10 }}>
+                    NEXT UP · {nextAction.section.toUpperCase()}
+                  </span>
+                  <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>tap card to open →</span>
+                </div>
+                {/* Step name — read-only info row */}
+                <div style={{
+                  padding: '12px 14px',
+                  background: 'var(--bg-elevated)',
+                  border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-md) var(--radius-md) 0 0',
+                  color: 'var(--text-primary)',
+                  fontSize: 15,
+                  fontWeight: 500,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 10,
+                }}>
+                  <span style={{
+                    width: 8, height: 8, borderRadius: '50%',
+                    background: 'var(--accent)', flexShrink: 0,
+                  }} />
+                  {nextAction.label}
+                </div>
+                {/* Explicit "Mark Done" button — visually separate from the step name */}
                 <motion.button
                   onClick={handleCompleteNextAction}
                   whileTap={{ scale: 0.97 }}
                   style={{
                     width: '100%',
-                    padding: '14px 18px',
-                    background: 'var(--accent-glow)',
-                    border: '1px solid rgba(196,149,106,0.3)',
-                    borderRadius: 'var(--radius-md)',
-                    color: 'var(--text-primary)',
-                    fontWeight: 600,
-                    fontSize: 15,
-                    textAlign: 'left',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 10,
-                    cursor: 'pointer',
-                  }}
-                >
-                  <span style={{
-                    width: 22,
-                    height: 22,
-                    borderRadius: '50%',
-                    border: '2px solid var(--accent)',
-                    flexShrink: 0,
+                    padding: '13px 18px',
+                    background: 'var(--accent)',
+                    border: 'none',
+                    borderRadius: '0 0 var(--radius-md) var(--radius-md)',
+                    color: '#141210',
+                    fontWeight: 700,
+                    fontSize: 14,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                  }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)' }} />
-                  </span>
-                  {nextAction.label}
+                    gap: 8,
+                    cursor: 'pointer',
+                  }}
+                >
+                  ✓ Mark Done
                 </motion.button>
               </>
             ) : (
@@ -258,7 +269,7 @@ export default function SpotlightView({ spotlightId, onSetSpotlight, onOpenDetai
                 video={v}
                 series={config.series}
                 isActive={false}
-                onSelect={() => onSetSpotlight(v.id)}
+                onSelect={() => onOpenDetail(v.id)}
               />
             ))}
           </div>

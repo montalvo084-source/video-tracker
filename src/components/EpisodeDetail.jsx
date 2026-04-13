@@ -241,6 +241,9 @@ export default function EpisodeDetail({ videoId, onBack }) {
   const [episodeConfetti, setEpisodeConfetti] = React.useState(0)
   const titleRef = React.useRef(null)
   const prevCompleteRef = React.useRef(false)
+  // Keep a ref to current state so handleXP doesn't capture a stale closure
+  const stateRef = React.useRef(state)
+  React.useEffect(() => { stateRef.current = state })
 
   React.useEffect(() => {
     if (video) {
@@ -268,9 +271,9 @@ export default function EpisodeDetail({ videoId, onBack }) {
 
   function handleXP() {
     dispatch({ type: 'GAIN_XP', payload: { action: 'phase_checked', points: 10, episodeId: videoId } })
-    // Check episode complete
+    // Use stateRef so we always read the latest state, not a stale closure
     setTimeout(() => {
-      const updated = state.videos.find(v => v.id === videoId)
+      const updated = stateRef.current.videos.find(v => v.id === videoId)
       if (updated && isEpisodeComplete(updated) && !prevCompleteRef.current) {
         dispatch({ type: 'GAIN_XP', payload: { action: 'episode_complete', points: 100, episodeId: videoId } })
         setEpisodeConfetti(c => c + 1)

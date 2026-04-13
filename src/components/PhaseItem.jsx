@@ -5,6 +5,7 @@ import { AppContext } from '../hooks/useAppState'
 export default function PhaseItem({ item, videoId, listKey, isPlatform, isFirst, isLast, onXP }) {
   const { dispatch } = React.useContext(AppContext)
   const [editing, setEditing] = React.useState(false)
+  const [showActions, setShowActions] = React.useState(false)
   const [draft, setDraft] = React.useState(item.label)
   const [burst, setBurst] = React.useState(false)
   const inputRef = React.useRef(null)
@@ -157,36 +158,59 @@ export default function PhaseItem({ item, videoId, listKey, isPlatform, isFirst,
           )}
         </div>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', gap: 2, flexShrink: 0 }}>
-          {!isFirst && (
+        {/* Actions — hidden behind ⋯ to prevent accidental taps */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 2, flexShrink: 0 }}>
+          {showActions ? (
+            <>
+              {!isFirst && (
+                <button
+                  onClick={() => handleReorder('up')}
+                  style={{ minWidth: 44, minHeight: 44, color: 'var(--text-muted)', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  ↑
+                </button>
+              )}
+              {!isLast && (
+                <button
+                  onClick={() => handleReorder('down')}
+                  style={{ minWidth: 44, minHeight: 44, color: 'var(--text-muted)', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                >
+                  ↓
+                </button>
+              )}
+              <button
+                onClick={() => { setEditing(true); setShowActions(false) }}
+                style={{ minWidth: 44, minHeight: 44, color: 'var(--accent)', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ✎
+              </button>
+              <button
+                onClick={handleDelete}
+                style={{ minWidth: 44, minHeight: 44, color: 'var(--danger)', fontSize: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ×
+              </button>
+              <button
+                onClick={() => setShowActions(false)}
+                style={{ minWidth: 44, minHeight: 44, color: 'var(--text-muted)', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ✕
+              </button>
+            </>
+          ) : (
             <button
-              onClick={() => handleReorder('up')}
-              style={{ width: 28, height: 28, color: 'var(--text-muted)', fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              onClick={() => setShowActions(true)}
+              style={{
+                minWidth: 44, minHeight: 44,
+                color: 'var(--text-muted)',
+                fontSize: 18,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                letterSpacing: '-2px',
+              }}
             >
-              ↑
+              ···
             </button>
           )}
-          {!isLast && (
-            <button
-              onClick={() => handleReorder('down')}
-              style={{ width: 28, height: 28, color: 'var(--text-muted)', fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              ↓
-            </button>
-          )}
-          <button
-            onClick={() => setEditing(true)}
-            style={{ width: 28, height: 28, color: 'var(--text-muted)', fontSize: 13, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          >
-            ✎
-          </button>
-          <button
-            onClick={handleDelete}
-            style={{ width: 28, height: 28, color: 'var(--text-muted)', fontSize: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-          >
-            ×
-          </button>
         </div>
       </motion.div>
     </div>
