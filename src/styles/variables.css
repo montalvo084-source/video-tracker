@@ -1,0 +1,78 @@
+/* ─────────────────────────────────────────────
+   Design Tokens — Creative Command Center
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #141210;
+  --bg-surface: #1C1916;
+  --bg-card: #201E1B;
+  --bg-elevated: #252220;
+  --bg-input: #1A1714;
+
+  /* Borders */
+  --border: #2A2520;
+  --border-subtle: #221F1C;
+  --border-focus: #C4956A;
+
+  /* Text */
+  --text-primary: #E8DDD0;
+  --text-secondary: #8B7355;
+  --text-muted: #5A5048;
+  --text-placeholder: #3D3530;
+
+  /* Accent (amber/warm) */
+  --accent: #C4956A;
+  --accent-warm: #D4A574;
+  --accent-dim: #9A7050;
+  --accent-glow: rgba(196, 149, 106, 0.15);
+  --accent-glow-strong: rgba(196, 149, 106, 0.25);
+
+  /* Success (green) */
+  --success: #5A8F5A;
+  --success-dim: #3E6640;
+  --success-glow: rgba(90, 143, 90, 0.2);
+
+  /* Danger */
+  --danger: #C47B7B;
+  --danger-dim: rgba(196, 123, 123, 0.2);
+
+  /* Series palette */
+  --series-1: #7B9EC4;
+  --series-2: #B07CC6;
+  --series-3: #76AE8C;
+  --series-4: #C47B7B;
+  --series-5: #A8B87B;
+  --series-6: #9B7BC4;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Touch targets */
+  --touch-min: 44px;
+
+  /* Nav */
+  --nav-height: 64px;
+
+  /* Transitions */
+  --ease-fast: 0.15s ease;
+  --ease-default: 0.2s ease;
+  --ease-slow: 0.35s ease;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 0 20px rgba(196, 149, 106, 0.2);
+}
